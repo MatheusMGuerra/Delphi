@@ -61,7 +61,7 @@ var
 i : integer;
 begin
   memo1.Clear;
-  for I := 0 to j do
+  for I := 0 to j - 1 do
     begin
       memo1.Lines.Add(lista[i]);
     end;
@@ -84,7 +84,7 @@ begin
     end
     else
     begin
-      Showmessage('Algum campo inv·lido.');
+      Showmessage('Algum campo inv√°lido.');
     end;
   limpeza;
   finally
@@ -109,7 +109,7 @@ begin
     end
     else
     begin
-      Showmessage('Algum campo inv·lido.');
+      Showmessage('Algum campo inv√°lido.');
     end;
   limpeza;
   finally
