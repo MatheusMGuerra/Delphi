@@ -1,0 +1,137 @@
+unit Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Pessoa, Cliente, Vendedor,
+  Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TFormPrincipal = class(TForm)
+    btn_salvarC: TButton;
+    pageControl: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    edt_nomeC: TEdit;
+    edt_enderecoC: TEdit;
+    edt_idadeC: TEdit;
+    edt_vencimentoC: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Memo1: TMemo;
+    Cadastro: TLabel;
+    Consulta: TLabel;
+    BitBtn1: TBitBtn;
+    edt_idadeV: TEdit;
+    edt_comissao: TEdit;
+    edt_tipo: TEdit;
+    edt_nomeV: TEdit;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    btn_salvarV: TBitBtn;
+    procedure btn_salvarCClick(Sender: TObject);
+    procedure limpeza;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure btn_salvarVClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    lista : TStringList;
+    j : integer;
+  end;
+
+var
+  FormPrincipal: TFormPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TFormPrincipal.BitBtn1Click(Sender: TObject);
+var
+i : integer;
+begin
+  for I := 0 to j do
+    begin
+      memo1.Lines.Add(lista[i]);
+    end;
+end;
+
+procedure TFormPrincipal.btn_salvarCClick(Sender: TObject);
+var
+cliente : TCliente;
+begin
+  cliente := TCliente.Create;
+  try
+    cliente.nome := edt_nomeC.Text;
+    cliente.idade :=  strtoint(edt_idadeC.Text);
+    cliente.endereco := edt_enderecoC.Text;
+    cliente.vencimento := strtoint(edt_vencimentoC.Text);
+    if cliente.salvar(lista) then
+    begin
+      Showmessage('Cadastro realizado.');
+      j := j + 1;
+    end
+    else
+    begin
+      Showmessage('O cadastro não pôde ser realizado');
+    end;
+  limpeza;
+  finally
+    cliente.Free;
+  end;
+end;
+
+procedure TFormPrincipal.btn_salvarVClick(Sender: TObject);
+var
+vendedor : TVendedor;
+begin
+  vendedor := TVendedor.Create;
+  try
+    vendedor.nome := edt_nomeV.Text;
+    vendedor.idade := strtoint(edt_idadeV.Text);
+    vendedor.comissao := strtofloat(edt_comissao.Text);
+    vendedor.tipo := edt_tipo.Text;
+    if vendedor.salvar(lista) then
+    begin
+      Showmessage('Cadastro realizado.');
+      j := j + 1;
+    end;
+  limpeza;
+  finally
+    vendedor.Free;
+  end;
+end;
+
+procedure TFormPrincipal.FormCreate(Sender: TObject);
+begin
+  lista := TStringList.Create;
+end;
+
+procedure TFormPrincipal.FormDestroy(Sender: TObject);
+begin
+  lista.Free
+end;
+
+procedure TFormPrincipal.limpeza;
+begin
+  edt_nomeC.Clear;
+  edt_idadeC.Clear;
+  edt_enderecoC.Clear;
+  edt_vencimentoC.Clear;
+  edt_nomeV.Clear;
+  edt_idadeV.Clear;
+  edt_comissao.Clear;
+  edt_tipo.Clear;
+end;
+
+end.

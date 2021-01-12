@@ -1,0 +1,19 @@
+program ClienteVendedor;
+
+uses
+  Vcl.Forms,
+  Principal in 'Principal.pas' {FormPrincipal},
+  Pessoa in 'Pessoa.pas',
+  Cliente in 'Cliente.pas',
+  Vendedor in 'Vendedor.pas',
+  Unit1 in '..\teste\Unit1.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFormPrincipal, FormPrincipal);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

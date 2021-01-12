@@ -1,0 +1,16 @@
+unit Cliente;
+
+interface
+
+type
+  TCliente = class
+    private
+
+    public
+      endereco : String;
+      vencimento : String;
+  end;
+
+implementation
+
+end.

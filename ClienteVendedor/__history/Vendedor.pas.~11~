@@ -1,0 +1,48 @@
+unit Vendedor;
+
+interface
+
+uses system.classes, system.SysUtils, Pessoa;
+
+type
+  TVendedor = class(TPessoa)
+  protected
+    function validacao: boolean; override;
+    function acaoLista(lista: TStringList): boolean; override;
+  public
+    comissao: double;
+    tipo: string;
+  end;
+
+implementation
+
+{ TVendedor }
+
+function TVendedor.acaoLista(lista: TStringList): boolean;
+begin
+  Result := False;
+  auxiliar := (' | Comissão: ' + (floatToStr(Comissao)) + ' | Tipo do vendedor: ' + tipo);
+  inherited;
+  Result := True;
+end;
+
+function TVendedor.validacao: boolean;
+begin
+  if inherited then
+  begin
+    if (comissao > 0) AND (uppercase(tipo = 'I') OR uppercase(tipo = 'E')) then
+    begin
+      result := true;
+    end
+    else
+    begin
+      result := false;
+    end;
+  end
+  else
+  begin
+    result := false;
+  end;
+end;
+
+end.

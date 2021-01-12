@@ -1,0 +1,16 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  Principal in 'Principal.pas' {btn_listar},
+  Pessoa in 'Pessoa.pas',
+  Cliente in 'Cliente.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tbtn_listar, btn_listar);
+  Application.Run;
+end.

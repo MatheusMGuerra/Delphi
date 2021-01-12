@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{27023D65-A22A-4033-BD69-CEE3446477B4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ClienteVendedor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\Nv01\Calculadora\Ex01Calculadora.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\Nv02\Matriz\ProjetoMatriz.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\Nv02\Matriz2\ProjectMatriz2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ClienteVendedor">
+        <MSBuild Projects="ClienteVendedor.dproj"/>
+    </Target>
+    <Target Name="ClienteVendedor:Clean">
+        <MSBuild Projects="ClienteVendedor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClienteVendedor:Make">
+        <MSBuild Projects="ClienteVendedor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Ex01Calculadora">
+        <MSBuild Projects="..\..\Nv01\Calculadora\Ex01Calculadora.dproj"/>
+    </Target>
+    <Target Name="Ex01Calculadora:Clean">
+        <MSBuild Projects="..\..\Nv01\Calculadora\Ex01Calculadora.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Ex01Calculadora:Make">
+        <MSBuild Projects="..\..\Nv01\Calculadora\Ex01Calculadora.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjetoMatriz">
+        <MSBuild Projects="..\..\Nv02\Matriz\ProjetoMatriz.dproj"/>
+    </Target>
+    <Target Name="ProjetoMatriz:Clean">
+        <MSBuild Projects="..\..\Nv02\Matriz\ProjetoMatriz.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjetoMatriz:Make">
+        <MSBuild Projects="..\..\Nv02\Matriz\ProjetoMatriz.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectMatriz2">
+        <MSBuild Projects="..\..\Nv02\Matriz2\ProjectMatriz2.dproj"/>
+    </Target>
+    <Target Name="ProjectMatriz2:Clean">
+        <MSBuild Projects="..\..\Nv02\Matriz2\ProjectMatriz2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectMatriz2:Make">
+        <MSBuild Projects="..\..\Nv02\Matriz2\ProjectMatriz2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ClienteVendedor;Ex01Calculadora;ProjetoMatriz;ProjectMatriz2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ClienteVendedor:Clean;Ex01Calculadora:Clean;ProjetoMatriz:Clean;ProjectMatriz2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ClienteVendedor:Make;Ex01Calculadora:Make;ProjetoMatriz:Make;ProjectMatriz2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

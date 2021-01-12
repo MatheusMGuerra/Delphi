@@ -1,0 +1,18 @@
+unit Cliente;
+
+interface
+
+uses Pessoa;
+
+type
+  TCliente = class(TPEssoa)
+    private
+
+    public
+      endereco : String;
+      vencimento : String;
+  end;
+
+implementation
+
+end.
