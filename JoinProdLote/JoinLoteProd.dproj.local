@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/12/17 08:24:29.000.465,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/03 10:34:02.000.421,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/03 10:36:09.000.866,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/03 10:36:42.000.369,=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Nv04\JoinProdLote\UJoin.pas</Transaction>
+    <Transaction>2021/02/03 10:38:14.000.963,C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\matheus\Documents\Embarcadero\Studio\Projects\Nv04\JoinProdLote\JoinLoteProd.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
